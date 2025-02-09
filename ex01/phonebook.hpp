@@ -1,8 +1,20 @@
-#ifndef PHONEBOOK
-#define PHONEBOOK
+#ifndef PHONEBOOK_HPP
+#define PHONEBOOK_HPP
 
-#include "./contact.cpp"
-#include "./phonebook.cpp"
-class Contact;
-class Phonebook;
+#include "./Contact.hpp"
+
+class Phonebook
+{
+    public:
+        Phonebook();
+        void empty_phonelist(void);
+        void add_contact(void);
+        void display_non_empty_contacts(void);
+
+    private:
+        Contact *contacts_list;
+        std::string ten_characters_wide(int index);
+        void select_by_index_prompt(int limit);
+};
+
 #endif
