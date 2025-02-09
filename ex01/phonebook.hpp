@@ -12,6 +12,7 @@ class Phonebook
         void display_non_empty_contacts(void);
 
     private:
+        static int total_contacts;
         Contact *contacts_list;
         std::string ten_characters_wide(int index);
         void select_by_index_prompt(int limit);

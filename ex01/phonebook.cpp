@@ -1,5 +1,12 @@
 #include "./Phonebook.hpp"
 
+int Phonebook::total_contacts = 0;
+
+Phonebook::Phonebook()
+{
+    contacts_list = new Contact[8];
+}
+
 std::string Phonebook::ten_characters_wide(int index)
 {
     std::string character_wide;
@@ -9,7 +16,7 @@ std::string Phonebook::ten_characters_wide(int index)
     while(counter < 10)
     {
         if (counter == 0)
-            character_wide +=  char('0' + index + 1);
+            character_wide +=  char('0' + index);
         else
             character_wide += ' ';
         counter++;
@@ -35,11 +42,6 @@ void Phonebook::select_by_index_prompt(int limit)
 
 }
 
-Phonebook::Phonebook()
-{
-    contacts_list = new Contact[8];
-}
-
 void Phonebook::empty_phonelist()
 {
     delete [] contacts_list;
@@ -47,21 +49,24 @@ void Phonebook::empty_phonelist()
 
 void Phonebook::add_contact()
 {
-    int counter;
-
-    counter = 0;
-    while(this->contacts_list[counter].get_first_name() != "")
+    if (this->total_contacts < 8)
     {
-        counter++;
+        this->total_contacts++;
     }
-    this->contacts_list[counter].set_contact_info();
+    else
+    {
+        this->total_contacts = 1;
+    }
+    this->contacts_list[total_contacts].set_contact_info();
+    std::cout << "ADDED" << std::endl;
+    std::cout << this->total_contacts << std::endl;
 }
 
 void Phonebook::display_non_empty_contacts()
 {
     int counter;
 
-    counter = 0;
+    counter = 1;
     while(this->contacts_list[counter].get_first_name() != "")
     {
         std::cout <<  ten_characters_wide(counter);
