@@ -32,7 +32,6 @@ void Phonebook::select_by_index_prompt(int limit)
     {
         std::cout << "PLEASE SELECT ONE OF THE INDEX FROM SEARCH:" << std::endl;
         std::cin >> index;
-        index = index - 1;
         if(index < limit && index >= 0)
         {
             this->contacts_list[index].print_contact_info_line_by_line();
@@ -58,8 +57,6 @@ void Phonebook::add_contact()
         this->total_contacts = 1;
     }
     this->contacts_list[total_contacts].set_contact_info();
-    std::cout << "ADDED" << std::endl;
-    std::cout << this->total_contacts << std::endl;
 }
 
 void Phonebook::display_non_empty_contacts()
