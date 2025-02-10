@@ -33,7 +33,7 @@ void process_response()
         {
             phonebook.display_non_empty_contacts();
         }else{
-            break;
+            continue;
         }
     }
 }
