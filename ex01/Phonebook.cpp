@@ -12,7 +12,7 @@
 
 #include "./Phonebook.hpp"
 
-int Phonebook::total_contacts = 0;
+int Phonebook::total_contacts = -1;
 
 Phonebook::Phonebook()
 {
@@ -44,6 +44,7 @@ void Phonebook::select_by_index_prompt(int limit)
     {
         std::cout << "PLEASE SELECT ONE OF THE INDEX FROM SEARCH:" << std::endl;
         std::cin >> index;
+        index--;
         if (std::cin.fail())
         {
             std::cin.clear();
@@ -71,13 +72,13 @@ void Phonebook::empty_phonelist()
 
 void Phonebook::add_contact()
 {
-    if (this->total_contacts < 8)
+    if (this->total_contacts < 7)
     {
         this->total_contacts++;
     }
     else
     {
-        this->total_contacts = 1;
+        this->total_contacts = 0;
     }
     this->contacts_list[total_contacts].set_contact_info();
 }
@@ -86,10 +87,10 @@ void Phonebook::display_non_empty_contacts()
 {
     int counter;
 
-    counter = 1;
+    counter = 0;
     while(this->contacts_list[counter].get_first_name() != "")
     {
-        std::cout <<  ten_characters_wide(counter);
+        std::cout <<  ten_characters_wide(counter + 1);
         std::cout <<  " | ";
         std::cout <<  this->contacts_list[counter].get_first_name_list_version();
         std::cout <<  " | ";
