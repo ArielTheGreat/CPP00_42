@@ -23,7 +23,7 @@ class Phonebook
 
     private:
         static int total_contacts;
-        Contact *contacts_list;
+        static Contact contacts_list[8];
         std::string ten_characters_wide(int index);
         void select_by_index_prompt(int limit);
 };

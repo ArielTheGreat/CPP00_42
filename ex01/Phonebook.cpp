@@ -13,6 +13,7 @@
 #include "./Phonebook.hpp"
 
 int Phonebook::total_contacts = -1;
+Contact Phonebook::contacts_list[8];
 
 std::string Phonebook::ten_characters_wide(int index)
 {

@@ -24,7 +24,6 @@ void process_response()
         std::cin >> input;
         if (input == "EXIT")
         {
-            phonebook.empty_phonelist();
             break;
         }else if(input == "ADD")
         {
