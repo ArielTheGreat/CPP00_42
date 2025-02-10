@@ -14,11 +14,6 @@
 
 int Phonebook::total_contacts = -1;
 
-Phonebook::Phonebook()
-{
-    contacts_list = new Contact[8];
-}
-
 std::string Phonebook::ten_characters_wide(int index)
 {
     std::string character_wide;
@@ -63,11 +58,6 @@ void Phonebook::select_by_index_prompt(int limit)
         }
     }
 
-}
-
-void Phonebook::empty_phonelist()
-{
-    delete [] contacts_list;
 }
 
 void Phonebook::add_contact()

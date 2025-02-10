@@ -18,8 +18,6 @@
 class Phonebook
 {
     public:
-        Phonebook();
-        void empty_phonelist(void);
         void add_contact(void);
         void display_non_empty_contacts(void);
 
