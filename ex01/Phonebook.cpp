@@ -32,6 +32,23 @@ std::string Phonebook::ten_characters_wide(int index)
     return character_wide;
 }
 
+std::string Phonebook::ten_characters_wide_string(std::string str)
+{
+    std::string character_wide;
+    int counter;
+
+    counter = 0;
+    while(counter < 10)
+    {
+        if (counter == 0)
+            character_wide +=  char('0');
+        else
+            character_wide += ' ';
+        counter++;
+    }
+    return character_wide;
+}
+
 void Phonebook::select_by_index_prompt(int limit)
 {
     int index;
@@ -83,11 +100,11 @@ void Phonebook::display_non_empty_contacts()
     {
         std::cout <<  ten_characters_wide(counter + 1);
         std::cout <<  " | ";
-        std::cout <<  this->contacts_list[counter].get_first_name_list_version();
+        std::cout <<  ten_characters_wide_string(this->contacts_list[counter].get_first_name_list_version());
         std::cout <<  " | ";
-        std::cout <<  this->contacts_list[counter].get_last_name_list_version();
+        std::cout <<  ten_characters_wide_string(this->contacts_list[counter].get_last_name_list_version());
         std::cout <<  " | ";
-        std::cout <<  this->contacts_list[counter].get_nickname_list_version();
+        std::cout <<  ten_characters_wide_string(this->contacts_list[counter].get_nickname_list_version());
         std::cout << '\n';
         counter++;
     }
