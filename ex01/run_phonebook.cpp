@@ -21,7 +21,7 @@ void process_response()
         std::cout << " ********************* "  << std::endl;
         std::cout << " Welcome to the phonebook. Please select one of 3 options: ADD / EXIT / SEARCH "  << std::endl;
         std::cout << " ********************* "  << std::endl;
-        std::cin >> input;
+        std::getline(std::cin, input);
         if (input == "EXIT")
         {
             break;

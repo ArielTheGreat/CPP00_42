@@ -24,6 +24,7 @@ class Contact
         std::string phone_number;
         std::string darkest_secret;
         std::string make_string_search_list_visible(std::string str);
+        std::string get_non_empty_input(std::string prompt);
 
     public:
         Contact(void);

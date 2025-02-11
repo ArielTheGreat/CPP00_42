@@ -48,18 +48,28 @@ Contact::Contact(std::string first_name, std::string last_name, std::string nick
     this->darkest_secret = darkest_secret;
 }
 
+std::string Contact::get_non_empty_input(std::string prompt) {
+    std::string input;
+    while (true) {
+        std::cout << prompt;
+        std::getline(std::cin, input);
+
+        if (input.empty()) {
+            std::cout << "Input cannot be empty. Please enter a valid value." << std::endl;
+        } else {
+            break;
+        }
+    }
+    return input;
+}
+
 void Contact::set_contact_info()
 {
-    std::cout << "First Name: ";
-    std::cin >> this->first_name;
-    std::cout << "Last Name: ";
-    std::cin >> this->last_name;
-    std::cout << "Nickname: ";
-    std::cin >> this->nickname;
-    std::cout << "Phone number: ";
-    std::cin >> this->phone_number;
-    std::cout << "Darkest Secret: ";
-    std::cin >> this->darkest_secret;
+    this->first_name = get_non_empty_input("First Name: ");
+    this->last_name = get_non_empty_input("Last Name: ");
+    this->nickname = get_non_empty_input("Nickname: ");
+    this->phone_number = get_non_empty_input("Phone Number: ");
+    this->darkest_secret = get_non_empty_input("Darkest Secret: ");
 }
 
 void Contact::print_contact_info_line_by_line()

@@ -60,7 +60,6 @@ void Phonebook::select_by_index_prompt(int limit)
     {
         std::cout << "PLEASE SELECT ONE OF THE INDEX FROM SEARCH:" << std::endl;
         std::cin >> index;
-        index--;
         if (std::cin.fail())
         {
             std::cin.clear();
@@ -68,6 +67,8 @@ void Phonebook::select_by_index_prompt(int limit)
             std::cout << "Invalid input. Please enter a number." << std::endl;
             continue;
         }
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        index--;
         if(index < limit && index >= 0)
         {
             this->contacts_list[index].print_contact_info_line_by_line();
