@@ -25,7 +25,7 @@ class Phonebook
         static int total_contacts;
         static Contact contacts_list[8];
         std::string ten_characters_wide(int index);
-        std::string Phonebook::ten_characters_wide_string(std::string str);
+        void ten_characters_wide_string(std::string str);
         void select_by_index_prompt(int limit);
 };
 
